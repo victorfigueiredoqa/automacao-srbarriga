@@ -15,4 +15,8 @@ describe('Teste da página de Login', () => {
   it('Validar login com sucesso', () => {
     cy.loginSucesso();
   })
+
+  it('Deslogar do sistema', () => {
+    cy.logoutSucesso();
+  })
 })

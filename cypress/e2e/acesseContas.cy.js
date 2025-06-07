@@ -56,7 +56,7 @@ describe('Teste funcionalidade de acessar contas', () => {
         cy.get('.dropdown-toggle').contains('Contas').click();
         cy.get('a[href*="contas"]').click();
         cy.get('thead > tr > :nth-child(1)').contains('Conta').should('be.visible');
-        const nomeContaParaExcluir = 'Conta com movimentacao';
+        const nomeContaParaExcluir = 'Conta para movimentacoes';
         cy.contains('table tbody tr td', nomeContaParaExcluir)
             .siblings()
             .find('.glyphicon-remove-circle')

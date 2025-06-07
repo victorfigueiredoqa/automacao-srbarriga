@@ -55,6 +55,8 @@ describe('Teste funcionalidade de movimentações', () => {
             cy.visit("/");
             cy.viewport(1280, 720);
             cy.loginSucesso();
+            cy.adicionarContas('Conta para saldo');
+            cy.adicionarContas('Conta para extrato');
         });
 
         it('Adicionar 2 movimentações para cada conta', () => {
@@ -165,7 +167,7 @@ describe('Teste funcionalidade de movimentações', () => {
             cy.loginSucesso();
         });
 
-        it.only('Submeter formulário com campo valor preenchido incorretamente', () => {
+        it('Submeter formulário com campo valor preenchido incorretamente', () => {
             cy.validarCampoValor();
         });
     });

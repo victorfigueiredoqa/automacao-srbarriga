@@ -37,6 +37,18 @@ Cypress.Commands.add("loginSucesso", (emailUsuario = Cypress.env("USUARIO_SRBARR
     cy.get('.alert').should('be.visible').and('contain.text', 'Bem vindo,');
 });
 
+// Custom command para realizar logout com sucesso
+Cypress.Commands.add("logoutSucesso", (emailUsuario = Cypress.env("USUARIO_SRBARRIGA"), senhaUsuario = Cypress.env("SENHA_SEBARRIGA")) => {
+    if (!emailUsuario || !senhaUsuario) {
+        throw new Error("Credenciais USUARIO_SRBARRIGA ou SENHA_SRBARRIGA não definidas...");
+    }
+    cy.get('#email').type(emailUsuario);
+    cy.get('#senha').type(senhaUsuario, { log: false });
+    cy.get('.btn').contains('Entrar').click();
+    cy.get('.alert').should('be.visible').and('contain.text', 'Bem vindo,');
+    cy.get('a[href*="logout"]').contains('Sair').click();
+});
+
 // Custom command para adicionar conta
 Cypress.Commands.add("adicionarContas", (nomeConta) => {
 
